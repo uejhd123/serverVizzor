@@ -67,11 +67,11 @@ func memStat() []string {
 		fmt.Println("fault")
 		os.Exit(1)
 	}
-	buf := make([]byte, 84)
+	buf := make([]byte, 100)
 	n1, err := file.Read(buf)
 	if err != nil {
 		os.Exit(1)
 	}
 	res := strings.ReplaceAll(string(buf[:n1]), " ", "")
-	return strings.Split(res, "\n")
+	return strings.Split(res, "\n")[0:3]
 }
